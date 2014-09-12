@@ -1,0 +1,25 @@
+alias lvad='ls ~/Documents/asciidoc/adoc'
+
+function vad() {
+
+  dir=~/Documents/asciidoc
+
+  name="${1%%.adoc}"
+  an="${dir}/adoc/${name}.adoc"
+  hn="${dir}/html/${name}.html"
+  pn="${dir}/pdf/${name}.pdf"
+
+  if [ ! -e "${an}" ]
+  then 
+    touch ${an}
+    sleep .5
+  fi
+
+  evince ${pn} > /dev/null 2>&1 &
+  epid=$!
+
+  vi ${an}
+
+  kill ${epid}
+  }
+

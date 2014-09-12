@@ -1,0 +1,2 @@
+~/Documents/asciidoc/adoc IN_CREATE,IN_MODIFY ~/bin/adoc_process.sh $@ $#
+
