@@ -56,7 +56,7 @@ Place the asciidoc.vim file into the ~/.vim/ftdetect directory
 Download Dag Wieers asciidoc syntax file from his GitHub repository.
 https://github.com/dagwieers/asciidoc-vim/blob/master/syntax/asciidoc.vim
 
-Rename Dags asciidoc.vim file to ${HOME}/.vim/syntax/Dagsasciidoc.vim
+Rename Dags asciidoc.vim file to ~/.vim/syntax/Dagsasciidoc.vim
 
 Syntax highlighting should now be enabled.
 
