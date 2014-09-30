@@ -29,7 +29,7 @@ The following packages are needed.
 ** this is available from the Fedora 20 (F20) repositories.
 
 * incron
-** this is available from the Fedora 20 (F20) repositories.
+** this is available from the F20 repositories.
 
 * wkhtmltopdf
 ** A patched version of QT must be installed if using a binary that uses shared libraries.
@@ -38,9 +38,7 @@ The following packages are needed.
 
 ** A statically compiled version of wkhtmltopdf that was compiled against the patched version of QT must be used.
 *** http://code.google.com/p/wkhtmltopdf/downloads/list?q=label:Deprecated
-*** http://code.google.com/p/wkhtmltopdf/downloads/detail?name=wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2&can=4&q=
-// do we actually use wkhtmltoimage ?
-// *** http://code.google.com/p/wkhtmltopdf/downloads/detail?name=wkhtmltoimage-0.11.0_rc1-static-amd64.tar.bz2&can=4&q=
+*** http://code.google.com/p/wkhtmltopdf/downloads/detail?name=wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2&can=4&q=[wkhtmltopdf-0.11.0_rc1-static-amd64.tar.bz2]
 
 * asciidoc
 ** this is available from the F20 repositories.
@@ -151,7 +149,7 @@ Make sure to rename the file to the users login name and set the owner/group to 
 -rw-------. 1 root myuser 99 Sep 24 17:18 /var/spool/incron/myuser
 ----
 
-Also ensure you expand to the tildes (~) in the file to the full path.
+Also ensure you expand the tildes (~) in the file to the full path.
 
 ===== example
 [source,bash]
@@ -161,5 +159,33 @@ Also ensure you expand to the tildes (~) in the file to the full path.
 
 The incrond daemon must be restarted to reload the configuration.
 
+
+
+== FAQ
+[qanda]
+Why do I see "E474: Invalid argument: listchars=tab:»·,trail:·" error when editing .adoc files?::
+This is likely due to the LANG variable not being set to use utf-8.  Please check your LANG variable value.
+How do I check what value LANG is currently set?::
++
+[source,bash]
+----
+ $  echo ${LANG}
+----
+How do I set a utf-8 value?::
+per-shell:
++
+[source,bash]
+----
+ $  export LANG=en_US.UTF-8
+----
+How do I set a persistent utf-8 value?::
+add the following in ~/.bash_profile: 
++
+[source,bash]
+----
+export LANG=en_US.UTF-8
+----
+What if I don't want to use utf-8?::
+You can change the characters used in 'listchars' to ones available in your LANG character-set. For example, instead of '»·' use '>-' for tabs.
 
 
