@@ -20,6 +20,6 @@ pdfdir=${updir}/pdf
 (
 asciidoc -o ${htmldir}/${filen}.html ${dir}/${file}
 
-~/bin/wkhtmltox/bin/wkhtmltopdf ${htmldir}/${filen}.html ${pdfdir}/${filen}.pdf
+wkhtmltopdf ${htmldir}/${filen}.html ${pdfdir}/${filen}.pdf
 ) > /tmp/adoc_process.out 2>&1
 
