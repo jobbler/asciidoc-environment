@@ -2,7 +2,7 @@ _vad()
 {
   local cur 
   cur="${COMP_WORDS[COMP_CWORD]}"
-  opts="$(find . -name '*.adoc' -exec basename {} \; | sed 's/\.adoc//')"
+  opts="$(find ~/Documents/asciidoc/adoc -name '*.adoc' -exec basename {} .adoc \; )"
 
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
 }

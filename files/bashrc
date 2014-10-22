@@ -1,25 +1,47 @@
-alias lvad='ls ~/Documents/asciidoc/adoc'
 
 function vad() {
 
-  dir=~/Documents/asciidoc
+  while getopts ":k" opt
+  do
+    case "${opt}" in
+      k)
+         KEEP=1
+         ;;
+    esac
+  done
+
+  shift $((OPTIND-1))
 
   name="${1%%.adoc}"
-  an="${dir}/adoc/${name}.adoc"
-  hn="${dir}/html/${name}.html"
-  pn="${dir}/pdf/${name}.pdf"
 
-  if [ ! -e "${an}" ]
-  then 
-    touch ${an}
-    sleep .5
-  fi
+  [[ ! -e "${name}.pdf" ]] && {
+    touch ${name}.adoc
+    }
 
-  evince ${pn} > /dev/null 2>&1 &
+  adoc_function_process.sh ${name}.adoc
+
+  evince ${name}.pdf > /dev/null 2>&1 &
   epid=$!
 
-  vi ${an}
+  vim ${name}.adoc
 
   kill ${epid}
+
+  [[ ! "${KEEP}" ]] && rm -f ${name}.pdf ${name}.html
+
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
