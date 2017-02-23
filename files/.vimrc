@@ -28,6 +28,9 @@ nnoremap <silent> <bs> :noh<return>
 
 " ASCIIDOC Mappings
 " -----------------
+" asciidoc bold by pressing Alt-1
+" :nnoremap <esc>1 viw<esc>a**<esc>hbi**<esc>
+
 " asciidoc bold by pressing Ctrl-b
 "   command mode - bolds word under cursor
 "   visual mode  - bolds selected text
@@ -47,6 +50,9 @@ nnoremap <silent> <bs> :noh<return>
 :vnoremap <C-i> d<esc>i++<esc>pa++<esc>
 
 
+
+" asciidoc remove *RA by pressing Alt-1
+" :nnoremap <A-1> viw<esc>a**<esc>2hbi**<esc>
 
 " asciidoc *RA File by pressing Alt-2
 :nnoremap <esc>2 viwd<esc>i__<esc>pa__<esc>

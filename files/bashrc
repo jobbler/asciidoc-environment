@@ -1,47 +1,22 @@
 
-function vad() {
-
-  while getopts ":k" opt
-  do
-    case "${opt}" in
-      k)
-         KEEP=1
-         ;;
-    esac
-  done
-
-  shift $((OPTIND-1))
-
-  name="${1%%.adoc}"
-
-  [[ ! -e "${name}.pdf" ]] && {
-    touch ${name}.adoc
-    }
-
-  adoc_function_process.sh ${name}.adoc
-
-  evince ${name}.pdf > /dev/null 2>&1 &
-  epid=$!
-
-  vim ${name}.adoc
-
-  kill ${epid}
-
-  [[ ! "${KEEP}" ]] && rm -f ${name}.pdf ${name}.html
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+vad () 
+{ 
+    while getopts ":k" opt; do
+        case "${opt}" in 
+            k)
+                KEEP=1
+            ;;
+        esac;
+    done;
+    shift $((OPTIND-1));
+    name="${1%%.adoc}";
+    [[ ! -e "${name}.pdf" ]] && { 
+        touch ${name}.adoc
+    };
+    adoc_function_process.sh ${name}.adoc;
+    evince ${name}.pdf > /dev/null 2>&1 & epid=$!;
+    vim ${name}.adoc;
+    kill ${epid};
+    [[ ! -n "${KEEP}" ]] && rm -f ${name}.pdf ${name}.html
+}
 

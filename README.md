@@ -7,13 +7,13 @@ These files and scripts allow an easy way for me to use asciidoc.
 
 In short, this sets up an environment that allows me to easily produce pdf files.
 
-This sets up a command that allows me to edit an asciidoc file, while its being editted, a pdf viewer is opened and is updated as I write changes to the file. This is almost real-time (or as real-time as I want it).
+This sets up a command that allows me to edit an asciidoc file, while its being editted, a pdf viewer is opened and is updated as I write changes to the file. This is almost real-time (or as real-time as I need it).
 
 
 
 There are two sets of files here.
 
-Set 1: Contains files that uses vim, scripts, and functions to automatically create a pdf to be viewed.
+Set 1: Contains files that use vim, scripts, and functions to automatically create a pdf to be viewed.
 * Configure VIM syntax highlighting
 
 * Configures a vim autocommand to call a script to generate a pdf everytime the file is saved.
